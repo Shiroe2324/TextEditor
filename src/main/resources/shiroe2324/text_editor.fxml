@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="shiroe2324.TextEditorController" stylesheets="@styles.css">
+
+  <top>
+    <MenuBar>
+      <menus>
+        <Menu text="Archivo">
+          <items>
+            <MenuItem text="Nuevo..." onAction="#menuItemNewAction" accelerator="SHORTCUT+N">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/document.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <MenuItem text="Nueva ventana" onAction="#menuItemNewWindowAction" accelerator="SHORTCUT+SHIFT+N">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/new-window.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <SeparatorMenuItem />
+            <MenuItem text="Abrir..." onAction="#menuItemOpenAction" accelerator="SHORTCUT+O">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/folder.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <MenuItem text="Guardar" onAction="#menuItemSaveAction" accelerator="SHORTCUT+S">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/save.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <MenuItem text="Guardar como..." onAction="#menuItemSaveAsAction" accelerator="SHORTCUT+SHIFT+S">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/save-as.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <SeparatorMenuItem />
+            <MenuItem text="Salir" onAction="#menuItemExitAction" accelerator="SHORTCUT+Q">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/close.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+          </items>
+        </Menu>
+        <Menu text="Edición">
+          <items>
+            <MenuItem text="Copiar" onAction="#menuItemCopyAction" accelerator="SHORTCUT+C">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/copy.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <MenuItem text="Cortar" onAction="#menuItemCutAction" accelerator="SHORTCUT+X">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/cut.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <MenuItem text="Pegar" onAction="#menuItemPasteAction" accelerator="SHORTCUT+V">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/paste.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <SeparatorMenuItem />
+            <MenuItem text="Deshacer" onAction="#menuItemUndoAction" accelerator="SHORTCUT+Z">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/undo.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <MenuItem text="Rehacer" onAction="#menuItemRedoAction" accelerator="SHORTCUT+Y">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/redo.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+            <SeparatorMenuItem />
+            <MenuItem text="Seleccionar todo" onAction="#menuItemSelectAllAction" accelerator="SHORTCUT+A">
+              <graphic>
+                <ImageView>
+                  <image>
+                    <Image url="@images/select-all.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </MenuItem>
+          </items>
+        </Menu>
+        <Menu text="Ver">
+          <items>
+            <Menu text="Zoom">
+              <items>
+                <MenuItem text="Acercar" onAction="#menuItemZoomInAction" accelerator="SHORTCUT+PLUS">
+                  <graphic>
+                    <ImageView>
+                      <image>
+                        <Image url="@images/zoom-in.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </MenuItem>
+                <MenuItem text="Alejar" onAction="#menuItemZoomOutAction" accelerator="SHORTCUT+MINUS">
+                  <graphic>
+                    <ImageView>
+                      <image>
+                        <Image url="@images/zoom-out.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </MenuItem>
+                <SeparatorMenuItem />
+                <MenuItem text="Predeterminado" onAction="#menuItemZoomDefaultAction" accelerator="SHORTCUT+0">
+                  <graphic>
+                    <ImageView>
+                      <image>
+                        <Image url="@images/undo.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </MenuItem>
+              </items>
+            </Menu>
+            <MenuItem text="Fuente..." onAction="#menuItemFontAction" />
+            <CheckMenuItem fx:id="checkMenuItemLineWrap" text="Ajuste de línea"
+              onAction="#checkMenuItemLineWrapAction" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </top>
+
+  <center>
+    <TextArea fx:id="textArea" onKeyTyped="#textAreaKeyTyped" onKeyReleased="#textAreaKeyReleased">
+      <font>
+        <Font name="Arial Rounded MT Bold" size="14" />
+      </font>
+    </TextArea>
+  </center>
+
+  <bottom>
+    <Label fx:id="lineColumnLabel" text="Línea: 1, Columna: 1" />
+  </bottom>
+
+</BorderPane>
